@@ -1,0 +1,73 @@
+.work main {
+  margin:2.65em 5em;
+}
+
+.portfolio-container {
+  display:flex;
+  justify-content:space-around;
+  max-width:1100px;
+  margin:0 auto;
+  li {
+    position: relative;
+    display:inline-block;
+    opacity: 0;
+    margin-right:9px;
+    width:0px;
+    flex:1 1 0;
+    height:540px;
+    overflow:hidden;
+    list-style-type:none;
+    background-position:center center;
+    background-size:cover;
+    border-radius:3px;
+    transition:flex 300ms ease-out, background-position 10s ease-out;
+    animation:kenBurns 10s forwards;
+    a {
+      position:absolute;
+      top:0;
+      bottom:0;
+      left:0;
+      right:0;
+    }
+    .title {
+      position:absolute;
+      bottom:0;
+      left:0;
+      right:0;
+      padding:1em;
+      color:#fff;
+      background: $primaryAccent;
+      opacity:0;
+      transition:opacity 300ms ease-out, transform 300ms ease-out;
+      h2 {
+        margin:0;
+        @include ms0;
+        width:11em;
+        @media(max-width:$mobile) {
+          width:5em;
+        }
+      }
+      i, svg {
+        margin-left:.5em;
+      }
+    }
+    &:last-of-type {
+      margin: 0;
+    }
+    &:hover {
+      width:15em;
+      .title {
+        opacity:1;
+      }
+    }
+  }
+}
+
+@keyframes kenBurns {
+  from {
+    background-position:100% center;
+  }
+  to {
+    background-position:center center;
+  }
+}

@@ -1,0 +1,18 @@
+// Vendor
+@import 'vendor/jquery.fancybox.min';
+
+// Utilities
+@import 'utilities/normalize',
+        'utilities/colors',
+        'utilities/breakpoints',
+        'utilities/typography';
+
+// Views
+@import 'views/main',
+        'views/page',
+        'views/work',
+        'views/single';
+
+// Components
+@import 'components/footer',
+        'components/header';

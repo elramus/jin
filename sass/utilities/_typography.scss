@@ -1,0 +1,56 @@
+// Typography modular scale. Based on ratio of 1.333
+@mixin ms-3 { font-size:.563em; }
+@mixin ms-2 { font-size:.75em; }
+@mixin ms-1 { font-size:.85em; }
+@mixin ms0 { font-size:1em; }
+@mixin ms1 { font-size:1.333em; }
+@mixin ms2 { font-size:1.777em; }
+@mixin ms3 { font-size:2.1em; }
+@mixin ms4 { font-size:3.157em; }
+
+html, body {
+  font-size:17px;
+  line-height:1.5;
+  color:$dark-gray;
+  font-family:'IBM Plex Sans Condensed','helvetica','arial','sans-serif';
+  background:$pale-blue;
+}
+
+a {
+  color:$primaryAccent;
+  text-decoration:none;
+  font-weight:bold;
+  transition:color 200ms ease-out;
+  &:hover {
+    color:$primaryAccentHover;
+  }
+}
+
+p {
+  font-size:17px;
+}
+
+h1 {
+  @include ms3;
+}
+h2 {
+  @include ms2;
+}
+h3 {
+  @include ms1;
+}
+h4 {
+  @include ms0;
+  font-weight:bold;
+}
+h5 {
+  @include ms-1;
+  text-transform:uppercase;
+}
+
+.page-title {
+  text-align:center;
+  text-transform: uppercase;
+  color:$primaryAccent;
+  margin-bottom:2em;
+}

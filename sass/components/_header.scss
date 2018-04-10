@@ -1,0 +1,125 @@
+.site-header {
+  position: relative;
+  display:flex;
+  justify-content:flex-end;
+  z-index:1000;
+  padding-top:$outerPadding;
+  padding-bottom: 2.65em;
+  .site-title {
+    display: inline-block;
+    text-transform:uppercase;
+    margin:0 1em 0 0;
+    // color:$primaryAccent;
+  }
+  .nav-control {
+    display: inline-block;
+    padding:.85em;
+    outline: none;
+    .hamburger {
+      width:33px;
+      height:5px;
+      background: $primaryAccent;
+      border-radius:1px;
+      transform-origin: 0 0;
+      transition:opacity 200ms ease-out, transform 200ms ease-out, background 150ms ease-out;
+      &.top-bun {
+        transform-origin:0 0;
+      }
+      &.meat {
+        margin:6px 0;
+      }
+      &.bottom-bun {
+        transform-origin:0 100%;
+      }
+    }
+    &:hover {
+      .hamburger {
+        background: $primaryAccentHover;
+      }
+    }
+    &.is-x {
+      .top-bun {
+        transform:rotate(45deg);
+      }
+      .meat {
+        opacity:0;
+      }
+      .bottom-bun {
+        transform:rotate(-45deg);
+      }
+    }
+  }
+  .site-nav {
+    display: none;
+    position:absolute;
+    top:11em;
+    right:4em;
+    ul {
+      li {
+        position: relative;
+        display: block;
+        list-style-type: none;
+        margin-bottom: 1em;
+        text-align: right;
+        opacity: 0;
+        transform:translateY(1em);
+        a {
+          position: relative;
+          display:inline-block;
+          transform:translateX(0);
+          @include ms4;
+          font-weight: bold;
+          transition:transform 100ms ease-out, color 150ms ease-out;
+        }
+        &:after {
+          content:'';
+          position: absolute;
+          right:0;
+          top:50%;
+          transform:translateY(-50%);
+          height:0px;
+          width:6px;
+          background: $primaryAccent;
+          transition:height 100ms ease-out, background 150ms ease-out;
+        }
+        &:hover , &.current_page_item {
+          a {
+            right:-.55em; // prevents gap between a and :after
+            padding-right:.55em; // ^
+            transform:translateX(-.55em);
+          }
+          &:after {
+            height:50px;
+          }
+        }
+        &:hover {
+          &:after {
+            background: $primaryAccentHover;
+          }
+        }
+      }
+    }
+  }
+  &.is-active {
+    z-index: 1000;
+    .site-nav {
+      display:block;
+    }
+  }
+
+} /* end .site-header */
+
+.menu-shader {
+  position:fixed;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity:0;
+  z-index:-1;
+  background:rgba(255,255,255,.95);
+  transition:opacity 200ms ease-out;
+  &.is-active {
+    z-index: 999;
+  }
+}

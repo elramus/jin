@@ -1,0 +1,35 @@
+.page {
+  .featured-image-container {
+    float:left;
+    margin-left:-9em;
+    margin-right:3.5em;
+    img {
+      position: relative;
+      top:8px;
+    }
+  }
+}
+
+.page.about {
+  .links {
+    display:inline-block;
+    border-top: 1px solid $light-gray;
+    margin-top: 1em;
+    padding:.65em 0 0 0;
+    a {
+      display:inline-flex;
+      color:$dark-gray;
+      margin-right:.75em;
+      align-items: center;
+      i, svg {
+        display:inline-block;
+        margin-right:.35em;
+        height:1.25em;
+        width:1.25em;
+      }
+      &:hover {
+        color:$primaryAccent;
+      }
+    }
+  }
+}

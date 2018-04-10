@@ -1,0 +1,19 @@
+.site-footer {
+  display:flex;
+  align-items: center;
+  justify-content:center;
+  p {
+    @include ms-3;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    a {
+      font-weight: normal;
+    }
+  }
+  a, p {
+    color:$middle-gray;
+  }
+  a:hover {
+    color:$primaryAccent;
+  }
+}

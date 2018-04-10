@@ -1,0 +1,54 @@
+$outerPadding:2.65em;
+$footerHeight:3em;
+
+html, body {
+  height:100%;
+  margin:0;
+}
+
+.wrapper-for-sticky {
+  min-height: 100%;
+  margin-bottom: -$footerHeight;
+}
+
+.site-footer, .push {
+  height:$footerHeight;
+}
+
+main {
+  display:block;
+  margin-bottom: 4em;
+}
+
+.outer-wrap {
+  max-width:90em;
+  padding-left: $outerPadding;
+  padding-right: $outerPadding;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.inner-wrap {
+  max-width:44.5em;
+  padding-left: $outerPadding;
+  padding-right: $outerPadding;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.inner-wrap-oversized {
+  max-width:61em;
+  padding-left: $outerPadding;
+  padding-right: $outerPadding;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+ul {
+  padding:0;
+}
+
+img {
+  max-width:100%;
+  height:auto;
+}
