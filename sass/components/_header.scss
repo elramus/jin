@@ -21,7 +21,7 @@
       background: $primaryAccent;
       border-radius:1px;
       transform-origin: 0 0;
-      transition:opacity 200ms ease-out, transform 200ms ease-out, background 150ms ease-out;
+      transition:opacity 150ms ease-out, transform 150ms ease-out, background 150ms ease-out;
       &.top-bun {
         transform-origin:0 0;
       }
@@ -67,34 +67,40 @@
           position: relative;
           display:inline-block;
           transform:translateX(0);
+          right:-.85em; // these prevent gap between a and :after
+          padding-right:.85em;
           @include ms4;
           font-weight: bold;
-          transition:transform 100ms ease-out, color 150ms ease-out;
+          transition:transform 150ms ease-out, color 150ms ease-out;
         }
-        &:after {
-          content:'';
-          position: absolute;
+        i, svg {
+          position:absolute;
           right:0;
-          top:50%;
-          transform:translateY(-50%);
-          height:0px;
-          width:6px;
-          background: $primaryAccent;
-          transition:height 100ms ease-out, background 150ms ease-out;
+          top:0;
+          bottom: 0;
+          transform:translateY(4px);
+          margin:auto;
+          opacity: 0;
+          color:$primaryAccent;
+          @include ms3;
+          transition:opacity 150ms ease-out;
         }
-        &:hover , &.current_page_item {
+        &:hover, &.current_page_item {
           a {
-            right:-.55em; // prevents gap between a and :after
-            padding-right:.55em; // ^
-            transform:translateX(-.55em);
+            transform:translateX(-.85em);
           }
-          &:after {
-            height:50px;
+          i, svg {
+            opacity: 1;
           }
         }
         &:hover {
-          &:after {
-            background: $primaryAccentHover;
+          i, svg {
+            color:$primaryAccentHover;
+          }
+        }
+        &.current_page_item {
+          i, svg {
+            transform:rotate(180deg) translateY(-4px);
           }
         }
       }
@@ -118,7 +124,7 @@
   opacity:0;
   z-index:-1;
   background:rgba(255,255,255,.95);
-  transition:opacity 200ms ease-out;
+  transition:opacity 150ms ease-out;
   &.is-active {
     z-index: 999;
   }
