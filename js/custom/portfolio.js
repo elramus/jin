@@ -5,9 +5,22 @@ jQuery(function ($) {
     const items = document.querySelectorAll('.portfolio-container li');
     let contWidth, itemWidthReg, itemWidthWide;
 
-    function setSize() {
-      setBarWidth();
-      setBarHeight();
+    function init() {
+      if ($(window).outerWidth() > 767) {
+        setBarWidth();
+        setBarHeight();
+        $(items).hover(
+          function () {
+            $(this).css('flex', `1 1 ${itemWidthWide}px`);
+          }, function () {
+            $(this).css('flex', `1 1 ${itemWidthReg}px`);
+          }
+        );
+      } else {
+        $(items).off();
+        $(items).css('height','300px');
+        $(items).css('flex','1 0 100%');
+      }
     }
 
     function setBarWidth() {
@@ -31,20 +44,11 @@ jQuery(function ($) {
     }
 
     // Let's go!
-    setSize();
+    init();
     TweenMax.staggerTo(items, 2, { opacity: '1' }, .08);
 
     // Event listeners
-    $(window).on('resize',setSize);
-    $(items).hover(
-      function() {
-        $(this).css('flex',`1 1 ${itemWidthWide}px`);
-        // TweenMax.to($(items).not(this),.25,{'opacity':'.85'});
-      }, function() {
-        $(this).css('flex',`1 1 ${itemWidthReg}px`);
-        // TweenMax.to(items,.15,{'opacity':'1'});
-      }
-    );
+    $(window).on('resize',init);
 
   }
   document.querySelector('body').classList.contains('work') ? port() : false;

@@ -7,6 +7,13 @@
       position: relative;
       top:8px;
     }
+    @media (max-width:$mobile) {
+      max-width:50%;
+      margin-right: 2em;
+    }
+    @media (max-width:$small) {
+      max-width:none;
+    }
   }
 }
 
@@ -31,5 +38,37 @@
         color:$primaryAccent;
       }
     }
+  } /* end .links */
+  .inner-wrap-oversized {
+    .inner-wrap {
+      padding:0;
+    }
+  }
+}
+
+.page.contact {
+  h5 {
+    margin-bottom: 0;
+  }
+  button {
+    float:right;
+  }
+  .message-success {
+    margin-top: 3em;
+    border:1px solid rgba($success,.5);
+    border-radius:3px;
+    color:$success;
+    text-align: center;
+    background: rgba($success,.1);
+    i, svg {
+      display:inline-block;
+      height:1em;
+      width:1em;
+      margin-right: .5em;
+    }
+  }
+  form {
+    max-width:30em;
+    margin:3em auto auto auto;
   }
 }

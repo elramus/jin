@@ -3,15 +3,21 @@
   display:flex;
   justify-content:flex-end;
   z-index:1000;
-  padding-top:$outerPadding;
+  padding-top:$outerGutter;
   padding-bottom: 2.65em;
+  @media(max-width:$tablet) {
+    padding-top:$outerGutterTablet;
+  }
+  @media(max-width:$mobile) {
+    padding-top:$outerGutterMobile;
+  }
   .site-title {
     display: inline-block;
     text-transform:uppercase;
     margin:0 1em 0 0;
-    // color:$primaryAccent;
   }
   .nav-control {
+    position: relative;
     display: inline-block;
     padding:.85em;
     outline: none;
@@ -48,12 +54,15 @@
         transform:rotate(-45deg);
       }
     }
-  }
+  } /* end .nav-control */
   .site-nav {
     display: none;
     position:absolute;
     top:11em;
     right:4em;
+    @media (max-width:$mobile) {
+      right:3em;
+    }
     ul {
       li {
         position: relative;
@@ -72,6 +81,9 @@
           @include ms4;
           font-weight: bold;
           transition:transform 150ms ease-out, color 150ms ease-out;
+          @media(max-width: $mobile) {
+            @include ms2;
+          }
         }
         i, svg {
           position:absolute;
@@ -79,11 +91,16 @@
           top:0;
           bottom: 0;
           transform:translateY(4px);
+          z-index:-1;
           margin:auto;
           opacity: 0;
           color:$primaryAccent;
           @include ms3;
           transition:opacity 150ms ease-out;
+          @media (max-width:$mobile) {
+            @include ms1;
+            transform:translate(6px);
+          }
         }
         &:hover, &.current_page_item {
           a {
@@ -100,12 +117,22 @@
         }
         &.current_page_item {
           i, svg {
-            transform:rotate(180deg) translateY(-4px);
+            transform:rotate(180deg) translateY(-2px);
           }
-        }
-      }
+        } /* end a */
+      } /* end li */
+    } /* end ul */
+    .admin-login {
+      position:fixed;
+      bottom:2em;
+      left:2em;
+      @include ms-2;
+      font-weight:normal;
+      text-transform: uppercase;
+      letter-spacing:1px;
+      color:$middle-gray;
     }
-  }
+  } /* end .site-nav */
   &.is-active {
     z-index: 1000;
     .site-nav {

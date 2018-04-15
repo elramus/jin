@@ -46,6 +46,7 @@ h4 {
 h5 {
   @include ms-1;
   text-transform:uppercase;
+  color:$middle-gray;
 }
 
 .page-title {

@@ -376,11 +376,10 @@ add_shortcode('html5_shortcode_demo_2', 'html5_shortcode_demo_2'); // Place [htm
 function create_post_type_portfolio()
 {
   register_taxonomy_for_object_type('category', 'work'); // Register Taxonomies for Category
-  register_taxonomy_for_object_type('post_tag', 'work');
-  register_post_type('work', // Register Custom Post Type
+  register_post_type('work', //
     array(
     'labels' => array(
-      'name' => __('Portfolio', 'html5blank'), // Rename these to suit
+      'name' => __('Portfolio', 'html5blank'), //
       'singular_name' => __('Work', 'html5blank'),
       'add_new' => __('Add New', 'html5blank'),
       'add_new_item' => __('Add New Work', 'html5blank'),
@@ -394,19 +393,25 @@ function create_post_type_portfolio()
       'not_found_in_trash' => __('No work found in Trash', 'html5blank')
     ),
     'public' => true,
-    'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
+    'publicly_queryable' => true,
+    'exclude_from_search' => false,
+    'show_ui' => true,
+    'query_var' => true,
+    'capability_type' => 'post',
+    'hierarchical' => false, // Allows your posts to behave like Hierarchy Pages
     'has_archive' => true,
+    'rewrite' => array('slug' => 'work'),
     'supports' => array(
       'title',
       'editor',
-      'excerpt',
+      // 'excerpt',
       'thumbnail'
-    ), // Go to Dashboard Custom HTML5 Blank post for supports
+    ),
     'can_export' => true, // Allows export in Tools > Export
     'taxonomies' => array(
-      'post_tag',
-      'category'
-    ) // Add Category and Post Tags support
+      // 'post_tag',
+      // 'category'
+    )
   ));
 }
 
@@ -425,5 +430,16 @@ function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 short
 {
   return '<h2>' . $content . '</h2>';
 }
+
+
+add_action( 'pre_get_posts', function ( $q ) {
+
+    if( !is_admin() && $q->is_main_query() && $q->is_post_type_archive( 'work' ) ) {
+
+        $q->set( 'posts_per_page', 2 );
+
+    }
+
+});
 
 ?>

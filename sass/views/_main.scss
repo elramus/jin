@@ -1,9 +1,16 @@
-$outerPadding:2.65em;
+$outerGutter:2.65em;
+$outerGutterTablet:2em;
+$outerGutterMobile:1em;
 $footerHeight:3em;
 
 html, body {
   height:100%;
   margin:0;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
 }
 
 .wrapper-for-sticky {
@@ -17,31 +24,55 @@ html, body {
 
 main {
   display:block;
-  margin-bottom: 4em;
+  margin-bottom:6em;
 }
 
 .outer-wrap {
   max-width:90em;
-  padding-left: $outerPadding;
-  padding-right: $outerPadding;
+  padding-left: $outerGutter;
+  padding-right: $outerGutter;
   margin-left: auto;
   margin-right: auto;
+  @media (max-width:$tablet) {
+    padding-left: $outerGutterTablet;
+    padding-right: $outerGutterTablet;
+  }
+  @media (max-width:$mobile) {
+    padding-left: $outerGutterMobile;
+    padding-right: $outerGutterMobile;
+  }
 }
 
 .inner-wrap {
   max-width:44.5em;
-  padding-left: $outerPadding;
-  padding-right: $outerPadding;
+  padding-left: $outerGutter;
+  padding-right: $outerGutter;
   margin-left: auto;
   margin-right: auto;
+  @media (max-width:$tablet) {
+    padding-left: $outerGutterTablet;
+    padding-right: $outerGutterTablet;
+  }
+  @media (max-width:$mobile) {
+    padding-left: $outerGutterMobile;
+    padding-right: $outerGutterMobile;
+  }
 }
 
 .inner-wrap-oversized {
   max-width:61em;
-  padding-left: $outerPadding;
-  padding-right: $outerPadding;
+  padding-left: $outerGutter;
+  padding-right: $outerGutter;
   margin-left: auto;
   margin-right: auto;
+  @media (max-width:$tablet) {
+    padding-left: $outerGutterTablet;
+    padding-right: $outerGutterTablet;
+  }
+  @media (max-width:$mobile) {
+    padding-left: $outerGutterMobile;
+    padding-right: $outerGutterMobile;
+  }
 }
 
 ul {

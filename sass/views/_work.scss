@@ -1,12 +1,22 @@
 .work main {
-  margin:2.65em 5em;
+  margin:$outerGutter 5em;
+  @media (max-width:$tablet) {
+    margin:$outerGutterTablet;
+  }
+  @media (max-width:$mobile) {
+    margin:$outerGutterMobile;
+
+  }
 }
 
 .portfolio-container {
   display:flex;
-  justify-content:space-around;
+  justify-content:space-between;
   max-width:1100px;
   margin:0 auto;
+  @media (max-width:$mobile) {
+    flex-wrap:wrap;
+  }
   li {
     position: relative;
     display:inline-block;
@@ -22,6 +32,10 @@
     border-radius:3px;
     transition:flex 300ms ease-out, background-position 10s ease-out;
     animation:kenBurns 10s forwards;
+    @media (max-width:$mobile) {
+      margin-right: 0;
+      border-radius:0;
+    }
     a {
       position:absolute;
       top:0;
@@ -36,15 +50,18 @@
       right:0;
       padding:1em;
       color:#fff;
-      background: $primaryAccent;
+      background: rgba($primaryAccent,.75);
       opacity:0;
       transition:opacity 300ms ease-out, transform 300ms ease-out;
+      @media (max-width:$mobile) {
+        opacity: 1;
+      }
       h2 {
         margin:0;
         @include ms0;
         width:11em;
         @media(max-width:$mobile) {
-          width:5em;
+          width:auto;
         }
       }
       i, svg {

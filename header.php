@@ -37,6 +37,7 @@
 
 				<nav class="site-nav">
 					<?php html5blank_nav(); ?>
+					<a href="<?php echo home_url(); ?>/wp-admin" class="admin-login">Admin</a>
 				</nav>
 
 			</header>
