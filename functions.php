@@ -37,6 +37,17 @@ if (function_exists('add_theme_support'))
 	Functions
 \*------------------------------------*/
 
+// add a new logo to the login page
+function rebel_logo() { ?>
+    <style type="text/css">
+        .login #login h1 a {
+            background-image: url('<?php echo get_bloginfo("template_directory"); ?>/img/rebel.png');
+            background-size: contain;
+        }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'rebel_logo' );
+
 // HTML5 Blank navigation
 function html5blank_nav()
 {
@@ -87,7 +98,7 @@ function html5blank_header_scripts()
 // Load HTML5 Blank styles
 function html5blank_styles()
 {
-  wp_register_style('jin_styles', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
+  wp_register_style('jin_styles', get_template_directory_uri() . '/style.min.css', array(), '1.0', 'all');
   wp_enqueue_style('jin_styles'); // Enqueue it!
 }
 
@@ -307,7 +318,7 @@ function html5blankcomments($comment, $args, $depth)
 // Remove unneeded menu items
 function remove_posts_from_menu()
 {
-  remove_menu_page( 'edit.php' );
+  // remove_menu_page( 'edit.php' );
   remove_menu_page( 'edit-comments.php' );
 }
 
@@ -317,13 +328,13 @@ function remove_posts_from_menu()
 
 // Add Actions
 add_action('init', 'html5blank_header_scripts'); // Add Custom Scripts to wp_head
-add_action('wp_print_scripts', 'html5blank_conditional_scripts'); // Add Conditional Page Scripts
-add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
+// add_action('wp_print_scripts', 'html5blank_conditional_scripts'); // Add Conditional Page Scripts
+// add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
 add_action('wp_enqueue_scripts', 'html5blank_styles'); // Add Theme Stylesheet
 add_action('init', 'register_html5_menu'); // Add HTML5 Blank Menu
 add_action('init', 'create_post_type_portfolio'); // Add our HTML5 Blank Custom Post Type
-add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
-add_action('init', 'html5wp_pagination'); // Add our HTML5 Pagination
+// add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
+// add_action('init', 'html5wp_pagination'); // Add our HTML5 Pagination
 add_action('admin_menu','remove_posts_from_menu'); // Remove unneeded menu items
 
 
@@ -375,7 +386,6 @@ add_shortcode('html5_shortcode_demo_2', 'html5_shortcode_demo_2'); // Place [htm
 
 function create_post_type_portfolio()
 {
-  register_taxonomy_for_object_type('category', 'work'); // Register Taxonomies for Category
   register_post_type('work', //
     array(
     'labels' => array(
@@ -399,8 +409,8 @@ function create_post_type_portfolio()
     'query_var' => true,
     'capability_type' => 'post',
     'hierarchical' => false, // Allows your posts to behave like Hierarchy Pages
-    'has_archive' => true,
-    'rewrite' => array('slug' => 'work'),
+    'has_archive' => false,
+    'show_in_rest' => true,
     'supports' => array(
       'title',
       'editor',
@@ -409,10 +419,11 @@ function create_post_type_portfolio()
     ),
     'can_export' => true, // Allows export in Tools > Export
     'taxonomies' => array(
-      // 'post_tag',
-      // 'category'
+      'post_tag',
+      'category'
     )
   ));
+  register_taxonomy_for_object_type('yeah', 'work'); // Register Taxonomies for Category
 }
 
 /*------------------------------------*\

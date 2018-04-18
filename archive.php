@@ -1,4 +1,8 @@
-<?php get_header(); ?>
+<?php header("Location: http://www.bryanhaney.com/");
+exit();
+?>
+
+<?php /* get_header(); ?>
 
 	<main role="main">
 		<!-- section -->
@@ -16,4 +20,4 @@
 
 <?php get_sidebar(); ?>
 
-<?php get_footer(); ?>
+<?php get_footer(); */ ?>

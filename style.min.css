@@ -183,7 +183,7 @@ img{max-width:100%;height:auto}
 .page.contact button{float:right}
 .page.contact .message-success{margin-top:3em;border:1px solid rgba(88,155,15,0.5);border-radius:3px;color:#589b0f;text-align:center;background:rgba(88,155,15,0.1)}
 .page.contact .message-success i,.page.contact .message-success svg{display:inline-block;height:1em;width:1em;margin-right:.5em}
-.page.contact form{max-width:30em;margin:3em auto auto auto}
+.page.contact form{max-width:30em;margin:3em auto 3em auto}
 .work main{margin:2.65em 5em}
 .portfolio-container{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;max-width:1100px;margin:0 auto}
 .portfolio-container li{position:relative;display:inline-block;opacity:0;margin-right:9px;width:0;-webkit-box-flex:1;-webkit-flex:1 1 0;-ms-flex:1 1 0;flex:1 1 0;height:540px;overflow:hidden;list-style-type:none;background-position:center center;background-size:cover;border-radius:3px;-webkit-transition:background-position 10s ease-out,-webkit-box-flex 300ms ease-out,-webkit-flex 300ms ease-out;transition:background-position 10s ease-out,-webkit-box-flex 300ms ease-out,-webkit-flex 300ms ease-out;transition:flex 300ms ease-out,background-position 10s ease-out;transition:flex 300ms ease-out,background-position 10s ease-out,-webkit-box-flex 300ms ease-out,-webkit-flex 300ms ease-out,-ms-flex 300ms ease-out;-webkit-animation:kenBurns 10s forwards;animation:kenBurns 10s forwards}
