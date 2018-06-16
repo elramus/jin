@@ -28,9 +28,9 @@ if (function_exists('add_theme_support'))
   // Add Thumbnail Theme Support
   add_theme_support('post-thumbnails');
   add_image_size('large', 700, '', true); // Large Thumbnail
-  add_image_size('medium', 250, '', true); // Medium Thumbnail
+  add_image_size('medium', 350, '', true); // Medium Thumbnail
   add_image_size('small', 120, '', true); // Small Thumbnail
-  add_image_size('video-cover', 1950, 1088); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
+  add_image_size('cover-image', 1950, '', false); // For video covers
 }
 
 /*------------------------------------*\
@@ -318,7 +318,7 @@ function html5blankcomments($comment, $args, $depth)
 // Remove unneeded menu items
 function remove_posts_from_menu()
 {
-  // remove_menu_page( 'edit.php' );
+  remove_menu_page( 'edit.php' );
   remove_menu_page( 'edit-comments.php' );
 }
 
@@ -423,7 +423,7 @@ function create_post_type_portfolio()
       'category'
     )
   ));
-  register_taxonomy_for_object_type('yeah', 'work'); // Register Taxonomies for Category
+  // register_taxonomy_for_object_type('yeah', 'work'); // Register Taxonomies for Category
 }
 
 /*------------------------------------*\
@@ -443,14 +443,14 @@ function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 short
 }
 
 
-add_action( 'pre_get_posts', function ( $q ) {
+// add_action( 'pre_get_posts', function ( $q ) {
 
-    if( !is_admin() && $q->is_main_query() && $q->is_post_type_archive( 'work' ) ) {
+//     if( !is_admin() && $q->is_main_query() && $q->is_post_type_archive( 'work' ) ) {
 
-        $q->set( 'posts_per_page', 2 );
+//         $q->set( 'posts_per_page', 2 );
 
-    }
+//     }
 
-});
+// });
 
 ?>

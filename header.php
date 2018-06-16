@@ -6,6 +6,17 @@
 		<meta charset="<?php bloginfo('charset'); ?>">
 		<title><?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' :'; } ?> <?php bloginfo('name'); ?></title>
 
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118288793-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'UA-118288793-1');
+		</script>
+
+
 		<link href="//www.google-analytics.com" rel="dns-prefetch">
 		<link href="<?php echo get_template_directory_uri(); ?>/img/favicon.ico" rel="icon">
 		<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Condensed:400,700" rel="stylesheet">
@@ -28,7 +39,10 @@
 
 			<header class="site-header outer-wrap">
 
-				<a href="<?php echo get_home_url(); ?>"><h1 class='site-title'>Bryan Michael Haney</h1></a>
+				<a href="<?php echo get_home_url(); ?>" class='site-title'>
+					<h1>Bryan Michael Haney</h1>
+					<span>Creative Producer</span>
+				</a>
 
 				<a href='#' class='nav-control'>
 					<div class='hamburger top-bun'></div>

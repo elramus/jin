@@ -17,6 +17,10 @@
     left: 0;
     background-size:cover;
     background-position: center;
+    transition:opacity 100ms ease-out;
+    &:hover {
+      opacity: .92;
+    }
   }
   .video { // thank you, embed responsively
     position: relative;
@@ -56,6 +60,7 @@
         color:$primaryAccent;
         font-size:70px;
         filter:drop-shadow(1px 5px 15px rgba(0,0,0,.35));
+        transition:color 300ms ease-out;
       }
       &:hover {
         i, svg {
@@ -74,7 +79,7 @@
       }
     }
     .right {
-      flex:0 0 9em;
+      flex:0 0 11.4em;
     }
     .credits {
       border-top: 1px solid $light-gray;
@@ -101,15 +106,26 @@
         border:none !important;
       }
     }
+    @media(max-width:$mobile) {
+      flex-direction: column;
+    }
   } /* end .content */
   .pagination {
     display:flex;
     justify-content: space-between;
-    margin-top: 5em;
+    margin-top:4em;
     .prev, .next {
       flex:0 0 auto;
-      @include ms-1;
-      // font-style:italic;
+      margin: 1em 0;
+      a {
+        @include ms0;
+      }
+    }
+    @media(max-width:$mobile) {
+      flex-direction: column;
+      .prev, .next {
+        text-align: center;
+      }
     }
   }
 }

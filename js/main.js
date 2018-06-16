@@ -66,6 +66,7 @@ jQuery(function ($) {
   const port = function() {
     const cont = document.querySelector('.portfolio-container');
     const items = document.querySelectorAll('.portfolio-container li');
+    const itemTitles = document.querySelectorAll('.portfolio-container li h2');
     let contWidth, itemWidthReg, itemWidthWide;
 
     function init() {
@@ -79,6 +80,7 @@ jQuery(function ($) {
             $(this).css('flex', `1 1 ${itemWidthReg}px`);
           }
         );
+        $(itemTitles).css('width', `${itemWidthWide - 150}px`);
       } else {
         $(items).off();
         $(items).css('height','300px');
@@ -123,7 +125,7 @@ jQuery(function ($) {
 
   $('.gallery .gallery-item a').attr('data-fancybox', 'gallery');
 
-  TweenMax.to($('.play'), .35, { 'transform':'translateY(0)','opacity':1});
+  TweenMax.to($('.play'), 1.5, { 'transform':'translateY(0)','opacity':1});
 
 }); // end jQuery
 jQuery(function ($) {

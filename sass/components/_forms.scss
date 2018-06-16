@@ -7,7 +7,7 @@ input, textarea {
   border-color:$light-gray;
   border-style:solid;
   border-width:0 0 2px 0;
-  background:$pale-blue;
+  // background:$pale-blue;
   transition:border 100ms ease-out;
   &:focus {
     border-color:$primaryAccent;

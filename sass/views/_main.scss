@@ -9,6 +9,13 @@ html, body {
   box-sizing: border-box;
 }
 
+body.work {
+  overflow: hidden;
+  @media(max-width:$mobile) {
+    overflow:auto;
+  }
+}
+
 * {
   box-sizing: inherit;
 }

@@ -14,7 +14,17 @@
   .site-title {
     display: inline-block;
     text-transform:uppercase;
-    margin:0 1em 0 0;
+    h1 {
+      margin:2px 1em 0 0;
+    }
+    span {
+      position: relative;
+      top:-7px;
+      opacity:.5;
+      @media(max-width:$mobile) {
+        top:6px;
+      }
+    }
   }
   .nav-control {
     position: relative;

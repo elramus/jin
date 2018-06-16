@@ -12,7 +12,7 @@
 					<?php if ( get_field('vimeo_url') || get_field('youtube_url') ) { ?>
 						<div class="play"><i class="fas fa-play"></i></div>
 					<?php } ?>
-					<div class="curtain" style="background-image:url('<?php echo get_the_post_thumbnail_url(); ?>');"></div>
+					<div class="curtain" style="background-image:url('<?php the_post_thumbnail_url('cover-image'); ?>');"></div>
 					<?php if (get_field('vimeo_url')) { ?>
 						<iframe data-src="<?php echo 'https://player.vimeo.com/video/' . get_field('vimeo_url') . '?autoplay=1'; ?>" frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 					<?php } ?>
@@ -42,11 +42,11 @@
 		</article>
 
 		<div class="pagination inner-wrap">
-			<div class="prev">
-				<?php previous_post_link('%link','&laquo; %title'); ?>
-			</div>
 			<div class="next">
-				<?php next_post_link('%link', '%title &raquo;'); ?>
+				<?php next_post_link('%link', '&laquo; %title'); ?>
+			</div>
+			<div class="prev">
+				<?php previous_post_link('%link','%title &raquo;'); ?>
 			</div>
 		</div>
 

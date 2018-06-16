@@ -11,7 +11,7 @@
 				while ( $loop->have_posts() ) : $loop->the_post();
 			?>
 
-			<li style='background-image:url("<?php the_post_thumbnail_url(); ?>");'>
+			<li style='background-image:url("<?php the_post_thumbnail_url('cover-image'); ?>");'>
 				<a href="<?php echo get_permalink(); ?>">
 					<div class="title"><h2><?php the_title(); ?> <i class="fas fa-arrow-right"></i></h2></div>
 				</a>

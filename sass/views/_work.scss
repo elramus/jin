@@ -52,20 +52,23 @@
       color:#fff;
       background: rgba($primaryAccent,.75);
       opacity:0;
-      transition:opacity 300ms ease-out, transform 300ms ease-out;
+      transition:opacity 300ms ease-out, transform 300ms ease-out, background 300ms ease-out;
       @media (max-width:$mobile) {
         opacity: 1;
       }
       h2 {
         margin:0;
         @include ms0;
-        width:11em;
+        width:13em;
         @media(max-width:$mobile) {
           width:auto;
         }
       }
       i, svg {
         margin-left:.5em;
+      }
+      &:hover {
+        background: $primaryAccentHover;
       }
     }
     &:last-of-type {

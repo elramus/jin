@@ -1,0 +1,24 @@
+/**
+ * partials/wordpress
+ * ---
+ * Wordpess core classes
+ */
+
+.alignnone {
+  // margin: $margin-vertical-base $margin-horizontal-large $margin-vertical-large 0;
+}
+
+.aligncenter {
+  display: block;
+  margin:auto;
+}
+
+.alignright {
+  float: right;
+  // margin: $margin-vertical-base 0 $margin-vertical-large $margin-horizontal-large;
+}
+
+.alignleft {
+  float: left;
+  // margin: $margin-vertical-base $margin-horizontal-large $margin-vertical-large 0;
+}

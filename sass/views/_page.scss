@@ -20,22 +20,26 @@
 .page.about {
   .links {
     display:inline-block;
-    border-top: 1px solid $light-gray;
+    // border-top: 1px solid $light-gray;
     margin-top: 1em;
     padding:.65em 0 0 0;
     a {
       display:inline-flex;
-      color:$dark-gray;
+      // color:$primaryAccent;
       margin-right:.75em;
       align-items: center;
+      text-transform: uppercase;
       i, svg {
         display:inline-block;
         margin-right:.35em;
         height:1.25em;
         width:1.25em;
       }
+      span {
+        @include ms-2;
+      }
       &:hover {
-        color:$primaryAccent;
+        // color:$primaryAccentHover;
       }
     }
   } /* end .links */
