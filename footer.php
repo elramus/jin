@@ -4,7 +4,7 @@
 
 			<footer class="site-footer" role="contentinfo">
 
-				<p>&copy; <?php echo date('Y'); ?> Bryan Michael Haney. Website by <a href='https://lukeramus.com' target='_blank'>Luke Ramus</a></p>
+				<p>&copy; <?php echo date('Y'); ?> Bryan Michael Haney. Website by <a href='http://lukeramus.com' target='_blank'>Luke Ramus</a></p>
 
 			</footer>
 
